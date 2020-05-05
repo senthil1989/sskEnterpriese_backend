@@ -150,7 +150,7 @@ exports.listRelated = (req, res) => {
 
   Product.find({ _id: { $ne: req.product }, category: req.product.category })
       .limit(limit)
-      .populate('category', '_id name')
+      .populate('category', '_id, name')
       .exec((err, products) => {
           if (err) {
               return res.status(400).json({
@@ -173,6 +173,7 @@ exports.listCategories = (req, res) => {
 };
 
 exports.listBySearch = (req, res) => {
+  console.log(req)
   let order = req.body.order ? req.body.order : "desc";
   let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
   let limit = req.body.limit ? parseInt(req.body.limit) : 100;

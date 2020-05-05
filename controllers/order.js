@@ -53,9 +53,10 @@ exports.listOrders = (req, res) => {
         .populate('user', '_id name address')
         .sort('-created')
         .exec((err, orders) => {
+            console.log(err, orders)
             if (err) {
                 return res.status(400).json({
-                    error: errorHandler(error)
+                    error: errorHandler(err)
                 });
             }
             res.json(orders);

@@ -11,6 +11,9 @@ const categoryRouter=require('./routes/category')
 const productRouter=require('./routes/product')
 const braintreetRouter=require('./routes/braintree')
 const orderRouter = require('./routes/order');
+
+//bot
+const dialogFlowRouter = require('./routes/dialogFlow');
 //db
 const mongoose=require('mongoose')
 //app
@@ -36,10 +39,13 @@ app.use('/api',productRouter);
 app.use('/api',braintreetRouter);
 app.use('/api', orderRouter);
 
+app.use('/api', dialogFlowRouter);
+
+
 mongoosePromises.then(()=>console.log("DB Connected"))
 
 
-const port =process.env.PORT || 8000
+const port =process.env.PORT || 8080
 app.listen(port, ()=>{
     console.log(`Server is Running on ${port}`)
 });
