@@ -28,6 +28,10 @@ const productSchema = new mongoose.Schema(
         quantity: {
             type: Number
         },
+        rating:{
+            type: Object,
+            default: {"totalRating":0,"averageRating":{"5":0,"4":0,"3":0,"2":0,"1":0}}
+        },
         sold: {
             type: Number,
             default: 0

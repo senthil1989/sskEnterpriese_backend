@@ -11,6 +11,7 @@ const categoryRouter=require('./routes/category')
 const productRouter=require('./routes/product')
 const braintreetRouter=require('./routes/braintree')
 const orderRouter = require('./routes/order');
+const sellerRouter = require('./routes/seller');
 
 //bot
 const dialogFlowRouter = require('./routes/dialogFlow');
@@ -38,6 +39,7 @@ app.use('/api',categoryRouter);
 app.use('/api',productRouter);
 app.use('/api',braintreetRouter);
 app.use('/api', orderRouter);
+app.use('/api', sellerRouter);
 
 app.use('/api', dialogFlowRouter);
 
